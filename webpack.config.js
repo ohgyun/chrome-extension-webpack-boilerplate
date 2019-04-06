@@ -35,9 +35,21 @@ const options = {
             exclude: /node_modules/,
             use: ['babel-loader']
         }, {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader',
-            exclude: /node_modules/
+            test: /\.less$/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: 'less-loader',
+                options: {
+                    sourceMap: true
+                }
+            }],
+            // exclude: /node_modules/
         }, {
             test: new RegExp('\.(' + fileExtensions.join('|') + ')$'),
             loader: 'file-loader?name=[name].[ext]',

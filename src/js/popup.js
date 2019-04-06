@@ -1,14 +1,11 @@
-import "../css/popup.css";
-import example from './popup/example';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-example();
+import '../css/popup.less';
 
-const title = 'My Minimal React Webpack Babel Setup';
+import Hello from './popup/Hello';
 
 ReactDOM.render(
-    <div>{title}</div>,
+    <Hello name="CRX" />,
     document.getElementById('app')
 );
